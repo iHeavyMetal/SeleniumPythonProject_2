@@ -5,18 +5,18 @@ from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 
 
-def test_log_in_passed():
+def test_log_in_passed(self):
     driver = webdriver.Chrome(ChromeDriverManager().install())
     driver.maximize_window()
-    driver.get("http://seleniumdemo.com/")
-    driver.find_element(By.XPATH, "//li[@id='menu-item-22']//a").click()
-    driver.find_element(By.ID, "username").send_keys("HeavyMetal@gmail.com")
-    driver.find_element(By.ID, "password").send_keys("Frytki123!")
-    driver.find_element(By.ID, "password").send_keys(Keys.ENTER)   #login by click ENTER_key
-    #driver.find_element(By.XPATH, "//button[@class='woocommerce-Button button']").click()
-    #driver.find_element(By.NAME, "login").click()
+    self.driver.get("http://seleniumdemo.com/")
+    self.driver.find_element(By.XPATH, "//li[@id='menu-item-22']//a").click()
+    self.driver.find_element(By.ID, "username").send_keys("HeavyMetal@gmail.com")
+    self.driver.find_element(By.ID, "password").send_keys("Frytki123!")
+    self.driver.find_element(By.ID, "password").send_keys(Keys.ENTER)   #login by click ENTER_key
+    #self.driver.find_element(By.XPATH, "//button[@class='woocommerce-Button button']").click()
+    #self.driver.find_element(By.NAME, "login").click()
 
-    assert driver.find_element(By.LINK_TEXT, "Logout").is_displayed()
+    assert self.driver.find_element(By.LINK_TEXT, "Logout").is_displayed()
     time.sleep(5)
 
 # def test_log_in_failed():
