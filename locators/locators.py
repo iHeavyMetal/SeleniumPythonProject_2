@@ -2,8 +2,6 @@ from selenium.webdriver.common.by import By
 
 class BillingAddressLocators:
 
-    reg_email_input = (By.ID, "reg_email")
-    reg_password_input = (By.ID, "reg_password")
     addresses_link = (By.LINK_TEXT, "Addresses")
     edit_link = (By.LINK_TEXT, "Edit")
     first_name_input = (By.ID, "billing_first_name")
