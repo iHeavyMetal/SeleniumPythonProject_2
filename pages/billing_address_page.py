@@ -20,8 +20,8 @@ class BillingAddressPage:
         self.msg_div = BillingAddressLocators.message
 
     def open_edit_billing_address(self):
-        self.driver.find_element(self.addresses_link).click()
-        self.driver.find_element(self.edit_link).click()
+        self.driver.find_element(*self.addresses_link).click()
+        self.driver.find_element(*self.edit_link).click()
 
 
     def set_personal_data(self, first_name, last_name):
@@ -29,20 +29,20 @@ class BillingAddressPage:
         self.driver.find_element(*self.last_name_input).send_keys(last_name)
 
     def select_country(self, country):
-        select = Select(self.driver.find_element(self.country_select))
+        select = Select(self.driver.find_element(*self.country_select))
         select.select_by_visible_text(country)
 
     def set_address(self, street, postcode, city):
-        self.driver.find_element(self.addresses_link).send_keys(street)
-        self.driver.find_element(self.postcode_input).send_keys(postcode)
-        self.driver.find_element(self.city_input).send_keys(city)
+        self.driver.find_element(*self.address_input).send_keys(street)
+        self.driver.find_element(*self.postcode_input).send_keys(postcode)
+        self.driver.find_element(*self.city_input).send_keys(city)
 
     def set_phone_number(self, number):
-        self.driver.find_element(self.phone_input).send_keys(number)
+        self.driver.find_element(*self.phone_input).send_keys(number)
 
     def save_address(self):
-        self.driver.find_element(self.save_address()).click()
+        self.driver.find_element(*self.save_address_button).click()
 
     def get_message_text(self):
-        return self.driver.find_element(self.msg_div).text
+        return self.driver.find_element(*self.msg_div).text
 
